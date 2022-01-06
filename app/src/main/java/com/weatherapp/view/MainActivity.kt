@@ -27,4 +27,6 @@ class MainActivity : AppCompatActivity() {
             }
         })
     }
+
+    // ViewModel know whe to die and when to be alive becasue it have two function one for the onDestory , onCreate
 }

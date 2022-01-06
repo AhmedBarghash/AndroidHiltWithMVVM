@@ -1,12 +1,13 @@
 package com.weatherapp.network
 
 import UserResponse
+import retrofit2.Call
 import retrofit2.http.GET
 import javax.inject.Singleton
 
-@Singleton
+
 interface ApiInterface {
     
     @GET("todo")
-    fun getUserData():List<UserResponse>
+    fun getUserData():Call<List<UserResponse>>
 }

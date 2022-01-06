@@ -1,20 +1,18 @@
 package com.weatherapp.repository
 
 import UserResponse
+import android.util.Log
 import com.weatherapp.network.ApiInterface
 import com.weatherapp.utils.Resource
 import dagger.hilt.android.scopes.ActivityScoped
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import javax.inject.Inject
 
-@ActivityScoped
 class UserRepository @Inject constructor(private val api: ApiInterface) {
 
-    suspend fun getUserResponse(): Resource<List<UserResponse>>{
-        val response = try {
-            api.getUserData()
-        }catch (e:Exception){
-            return Resource.Error(e.localizedMessage)
-        }
-        return Resource.Success(response)
+    fun getUserResponse(): Call<List<UserResponse>> {
+       return api.getUserData()
     }
 }

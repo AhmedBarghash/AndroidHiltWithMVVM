@@ -24,5 +24,9 @@
     <string name="temp_uint">"°C"</string>
     <string name="temp_max_value">"H:%s°"</string>
     <string name="temp_low_value">"L:%s°"</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 
 </resources>

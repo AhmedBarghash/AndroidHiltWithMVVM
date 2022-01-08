@@ -1,4 +1,4 @@
-package com.weatherapp.features.weatherList
+package com.weatherapp.features.ui.dashboard
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

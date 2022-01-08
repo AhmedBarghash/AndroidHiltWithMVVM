@@ -1,68 +1,63 @@
-package com.weatherapp.features.weatherList
+package com.weatherapp.features.ui.home
 
 import android.Manifest
 import android.annotation.SuppressLint
 import android.content.pm.PackageManager
 import android.location.Location
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
-import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import com.weatherapp.R
-import dagger.hilt.android.AndroidEntryPoint
 import com.weatherapp.data.remote.RemoteState
 import com.weatherapp.data.remote.model.WeatherCharacteristics
+import com.weatherapp.features.ui.GPSTracker
 import com.weatherapp.utils.*
-import kotlinx.android.synthetic.main.activity_main.*
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.layout_current_location_weather_info.*
 import java.util.*
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity() {
+class HomeFragment : Fragment() {
 
-    private val userViewModel: UserViewModel by viewModels()
     private lateinit var gpsTracker: GPSTracker
     private lateinit var userCurrentLocation: Location
     private var dueDateTime: Calendar = Calendar.getInstance()
+    private val homeViewModel: HomeViewModel by viewModels()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return inflater.inflate(R.layout.fragment_home, container, false)
+    }
 
-        initView()
-        gpsTracker = GPSTracker(applicationContext)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        gpsTracker = GPSTracker(requireContext())
         if (gpsTracker.checkGPSStatus()) {
             getUserUpdatedLocation()
         } else {
-            gpsTracker.showGPSDisabledAlertToUser(this)
+            gpsTracker.showGPSDisabledAlertToUser(requireActivity())
         }
 
-        userViewModel.state.observe(this, Observer { state ->
+        homeViewModel.state.observe(viewLifecycleOwner, Observer { state ->
             when (state) {
                 is RemoteState.Success<*> -> {
                     //hider loader
-                    emptyLayout.visibility = View.GONE
-                    currentLocationLayout.visibility = View.VISIBLE
                     setCurrentLocationWeatherData(state.data as WeatherCharacteristics)
                 }
                 is RemoteState.Failure -> {
                     //hider loader
-                    emptyLayout.visibility = View.GONE
                 }
             }
         })
-    }
-
-    private fun initView() {
-//        rvCharacteristics_?.apply {
-//            layoutManager =
-//                LinearLayoutManager(applicationContext, LinearLayoutManager.HORIZONTAL, false)
-//            characteristicsAdapter = CharacteristicsAdapter()
-//            adapter = characteristicsAdapter
-//        }
     }
 
     private fun setCurrentLocationWeatherData(response: WeatherCharacteristics) {
@@ -90,13 +85,13 @@ class MainActivity : AppCompatActivity() {
 
     private fun getUserUpdatedLocation() {
         if (ContextCompat.checkSelfPermission(
-                applicationContext,
+                requireContext(),
                 Manifest.permission.ACCESS_FINE_LOCATION
             ) == PackageManager.PERMISSION_GRANTED
         ) {
             createLocationListenerRequest()
         } else {
-            gpsTracker.createRequestPermissions(this)
+            gpsTracker.createRequestPermissions(requireActivity())
         }
     }
 
@@ -122,17 +117,17 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateViewWithServerData() {
-        if (!isNetworkAvailable(applicationContext)) {
-            showMessage(applicationContext.resources.getString(R.string.no_internetConnection))
+        if (!isNetworkAvailable(requireContext())) {
+            showMessage(requireContext().resources.getString(R.string.no_internetConnection))
             return
         }
-        userViewModel.getCurrentLocationWeatherData(
+        homeViewModel.getCurrentLocationWeatherData(
             userCurrentLocation.latitude,
             userCurrentLocation.longitude
         )
     }
 
     private fun showMessage(message: String) {
-        Toast.makeText(applicationContext, message, Toast.LENGTH_LONG).show()
+        Toast.makeText(requireContext(), message, Toast.LENGTH_LONG).show()
     }
 }

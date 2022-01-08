@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:scaleType="fitXY"
-        android:src="@drawable/night"
+        tools:src="@drawable/night"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,9 +20,9 @@
         android:id="@+id/ll_header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="@dimen/margin_default"
         android:gravity="center"
         android:orientation="vertical"
+        android:padding="@dimen/margin_default"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -65,11 +65,11 @@
         style="@style/H4MobileCenterGreyBold3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="@string/temp_uint"
         android:textColor="@color/white"
         android:textSize="50sp"
         app:layout_constraintStart_toEndOf="@+id/tv_temp"
-        app:layout_constraintTop_toTopOf="@+id/tv_temp"
-        android:text="@string/temp_uint" />
+        app:layout_constraintTop_toTopOf="@+id/tv_temp" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -121,15 +121,4 @@
         </LinearLayout>
     </LinearLayout>
 
-
-    <!--    <androidx.recyclerview.widget.RecyclerView-->
-    <!--        android:id="@+id/rvCharacteristics_"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_margin="@dimen/margin_default"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toBottomOf="@+id/linearLayout"-->
-    <!--        tools:itemCount="1"-->
-    <!--        tools:listitem="@layout/item_view_current_location_characteristics" />-->
 </androidx.constraintlayout.widget.ConstraintLayout>

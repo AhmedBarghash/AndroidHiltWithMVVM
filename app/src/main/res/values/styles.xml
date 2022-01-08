@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppTheme" parent="@style/Theme.AppCompat.Light.NoActionBar">
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="H2MobileCenterGrey">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:fontFamily">@font/light_font</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:lineSpacingExtra">8sp</item>
+        <item name="android:textColor">@color/mono_grey</item>
+    </style>
+
+    <style name="H4MobileCenterGreyBold3">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:fontFamily">@font/regular_font</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:lineSpacingExtra">8sp</item>
+        <item name="android:textColor">@color/mono_grey</item>
+    </style>
+
+    <style name="H3MobileLeftGrey7">
+        <item name="android:fontFamily">@font/light_font</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:lineSpacingExtra">6sp</item>
+        <item name="android:textColor">@color/mono_grey_2</item>
+    </style>
+
+    <style name="WeatherButton" parent="Widget.AppCompat.Button">
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+        <item name="android:paddingStart">@dimen/margin_small</item>
+        <item name="android:paddingEnd">@dimen/margin_small</item>
+        <item name="android:background">@drawable/background_button_primary</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/font_regular</item>
+        <item name="android:textSize">@dimen/button_text_size</item>
+        <item name="android:layout_width">@dimen/button_width</item>
+        <item name="android:layout_height">@dimen/button_height</item>
+    </style>
+</resources>

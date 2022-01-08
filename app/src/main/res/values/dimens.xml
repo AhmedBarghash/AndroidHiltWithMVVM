@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_tiny">4dp</dimen>
+    <dimen name="margin_small">8dp</dimen>
+    <dimen name="margin_medium">12dp</dimen>
+    <dimen name="margin_default">16dp</dimen>
+    <dimen name="margin_big">24dp</dimen>
+    <dimen name="margin_huge">32dp</dimen>
+    <dimen name="margin_large">40dp</dimen>
+    <dimen name="corner_radius_6">6dp</dimen>
+
+    <dimen name="button_text_size">18sp</dimen>
+    <dimen name="button_width">328dp</dimen>
+    <dimen name="button_height">40dp</dimen>
+
+    <dimen name="image_list_size_value">40dp</dimen>
+    <dimen name="cl_list_height_value">74dp</dimen>
+
+</resources>

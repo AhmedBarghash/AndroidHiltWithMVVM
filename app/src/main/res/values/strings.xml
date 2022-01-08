@@ -1,3 +1,28 @@
 <resources>
-    <string name="app_name">weather-app</string>
+    <string name="app_name">WeatherLogger</string>
+    <string name="add_record_text">Press + to add a weather record</string>
+    <string name="empty_title">Nothing here yet!</string>
+
+    <string name="empty_message">There is no data to show press Add to get the latest Weather data</string>
+
+    <string name="sunrise_title">Sunrise</string>
+    <string name="sunset_title">Sunset</string>
+    <string name="humidity_title">Humidity</string>
+    <string name="speed_title">Wind</string>
+    <string name="temp_max_title">High Temperature</string>
+    <string name="temp_min_title">Low Temperature</string>
+    <string name="current_weather">Current Weather</string>
+    <string name="no_data_to_show">There is no data to show</string>
+    <string name="duplicate_data_message">please wait for a few minutes and click save again to add new record</string>
+    <string name="no_internetConnection">There is no Internet Connection</string>
+    <string name="end_point_not_found">The end point your app try to call does not exists</string>
+    <string name="something_is_wrong">Something went wrong sorry :(</string>
+    <string name="your_token_is_expired">your token is expired or wrong</string>
+    <string name="timeout_message">Request Timeout. Please try again.</string>
+    <string name="server_error_message">" Server down  "</string>
+    <string name="add_new_weather_data_button_text">Add New Weather Record</string>
+    <string name="temp_uint">"°C"</string>
+    <string name="temp_max_value">"H:%s°"</string>
+    <string name="temp_low_value">"L:%s°"</string>
+
 </resources>

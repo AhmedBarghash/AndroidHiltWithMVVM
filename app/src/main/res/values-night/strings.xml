@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name = "app_name">WeatherLogger</string>
+    <string name = "add_record_text">Nospiediet +, lai pievienotu laika ziņas</string>
+    <string name = "sunrise_title">Saullēkts</string>
+    <string name = "sunset_title">Saulriets</string>
+    <string name = "humidity_title">Mitrums</string>
+    <string name = "speed_title">Vējš</string>
+    <string name = "temp_max_title">Paaugstināta temp.</string>
+    <string name = "temp_min_title">Zema temp.</string>
+    <string name="current_weather">Pašreizējie laikapstākļi</string>
+    <string name="no_data_to_show">Nav datu, ko parādīt</string>
+    <string name="duplicate_data_message">lūdzu, pagaidiet dažas minūtes un noklikšķiniet vēlreiz uz Saglabāt, lai pievienotu jaunu ierakstu</string>
+    <string name="no_internetConnection">Nav interneta savienojuma</string>
+    <string name="end_point_not_found">Beigu punkts, uz kuru jūsu lietotne mēģina piezvanīt, neeksistē</string>
+    <string name="something_is_wrong">Kaut kas nožēlojās :(</string>
+    <string name="your_token_is_expired">jūsu marķiera derīguma termiņš ir beidzies vai ir nepareizs</string>
+    <string name="timeout_message">Palūgt pārtraukumu. Lūdzu mēģiniet vēlreiz.</string>
+    <string name="server_error_message">Serveris nedarbojas</string>
+</resources>

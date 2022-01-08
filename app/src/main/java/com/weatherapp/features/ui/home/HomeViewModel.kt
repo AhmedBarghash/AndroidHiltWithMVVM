@@ -7,7 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.weatherapp.data.remote.RemoteState
 import com.weatherapp.data.remote.model.CurrentWeatherResponse
-import com.weatherapp.data.remote.model.WeatherCharacteristics
+import com.weatherapp.data.locale.WeatherCharacteristics
 import com.weatherapp.data.repository.WeatherRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import java.net.SocketTimeoutException
@@ -21,7 +21,7 @@ class HomeViewModel @Inject constructor(
     val state: LiveData<RemoteState> = _getState
 
     @SuppressLint("CheckResult")
-    fun getCurrentLocationWeatherData(currentLat: Double, currentLong: Double) {
+    fun getCurrentLocationWeatherData(currentLat: Double, currentLong: Double, isNetworkAvailable: Boolean) {
         weatherRepository.getWeatherBroadcast(currentLat, currentLong)
             .subscribe({
                 _getState.value =
@@ -36,9 +36,8 @@ class HomeViewModel @Inject constructor(
     }
 
     private fun createCurrentLocationWeatherCharacteristics(response: CurrentWeatherResponse): WeatherCharacteristics {
-
-
         return WeatherCharacteristics(
+            response.timezone!!,
             response.main!!.temp,
             response.main!!.tempMin,
             response.main!!.tempMax,

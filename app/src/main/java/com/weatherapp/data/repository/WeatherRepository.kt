@@ -9,9 +9,14 @@ import io.reactivex.schedulers.Schedulers
 
 import javax.inject.Inject
 
-class WeatherRepository @Inject constructor(private val api: WeatherInterface) {
+class WeatherRepository @Inject constructor(
+    private val api: WeatherInterface
+) {
 
-    fun getWeatherBroadcast(lat: Double, lon: Double): Observable<CurrentWeatherResponse> {
+    fun getWeatherBroadcast(
+        lat: Double,
+        lon: Double
+    ): Observable<CurrentWeatherResponse> {
         return api.getCurrentWeather(lat, lon, Constants.appIdKey)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())

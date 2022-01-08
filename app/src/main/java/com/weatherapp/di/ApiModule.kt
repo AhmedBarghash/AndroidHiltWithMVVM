@@ -1,5 +1,6 @@
 package com.weatherapp.di
 
+import com.weatherapp.data.locale.WeatherDao
 import com.weatherapp.data.remote.WeatherInterface
 import com.weatherapp.data.repository.WeatherRepository
 import dagger.Module
@@ -10,19 +11,19 @@ import retrofit2.Retrofit
 import javax.inject.Named
 import javax.inject.Singleton
 
-@InstallIn(SingletonComponent::class)
 @Module
+@InstallIn(SingletonComponent::class)
 class ApiModule {
 
     @Singleton
     @Provides
-    fun provideUserApi( @Named("retrofit") retrofit: Retrofit): WeatherInterface {
+    fun provideWeatherApi( @Named("retrofit") retrofit: Retrofit): WeatherInterface {
         return retrofit.create(WeatherInterface::class.java)
     }
 
     @Singleton
     @Provides
-    fun providesUserRepository(api: WeatherInterface) :WeatherRepository{
+    fun providesWeatherRepository(api: WeatherInterface) :WeatherRepository{
         return WeatherRepository(api)
     }
 

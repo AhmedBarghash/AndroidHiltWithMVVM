@@ -15,7 +15,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import com.weatherapp.R
 import com.weatherapp.data.remote.RemoteState
-import com.weatherapp.data.remote.model.WeatherCharacteristics
+import com.weatherapp.data.locale.WeatherCharacteristics
 import com.weatherapp.features.ui.GPSTracker
 import com.weatherapp.utils.*
 import dagger.hilt.android.AndroidEntryPoint
@@ -123,7 +123,8 @@ class HomeFragment : Fragment() {
         }
         homeViewModel.getCurrentLocationWeatherData(
             userCurrentLocation.latitude,
-            userCurrentLocation.longitude
+            userCurrentLocation.longitude,
+            !isNetworkAvailable(requireContext())
         )
     }
 

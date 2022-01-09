@@ -8,22 +8,20 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import com.weatherapp.R
-import com.weatherapp.data.remote.RemoteState
-import com.weatherapp.data.locale.WeatherCharacteristics
+import com.weatherapp.basics.BaseFragment
+import com.weatherapp.data.DataHandler
+import com.weatherapp.data.locale.model.WeatherCharacteristics
 import com.weatherapp.features.ui.GPSTracker
 import com.weatherapp.utils.*
-import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.layout_current_location_weather_info.*
 import java.util.*
 
-@AndroidEntryPoint
-class HomeFragment : Fragment() {
+class HomeFragment : BaseFragment() {
 
     private lateinit var gpsTracker: GPSTracker
     private lateinit var userCurrentLocation: Location
@@ -41,23 +39,29 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         gpsTracker = GPSTracker(requireContext())
-        if (gpsTracker.checkGPSStatus()) {
+        if (gpsTracker.isGPSPermissionGranted()) {
             getUserUpdatedLocation()
         } else {
             gpsTracker.showGPSDisabledAlertToUser(requireActivity())
         }
 
-        homeViewModel.state.observe(viewLifecycleOwner, Observer { state ->
+        homeViewModel.dataHandlerState.observe(viewLifecycleOwner, Observer { state ->
             when (state) {
-                is RemoteState.Success<*> -> {
+                is DataHandler.Success<*> -> {
                     //hider loader
+                    setLoaderVisibility(true)
                     setCurrentLocationWeatherData(state.data as WeatherCharacteristics)
                 }
-                is RemoteState.Failure -> {
+                is DataHandler.Failure -> {
                     //hider loader
+                    setLoaderVisibility(false)
                 }
             }
         })
+    }
+
+    fun setLoaderVisibility(flag: Boolean){
+        loader_bg.visibility = if (flag)  View.VISIBLE else View.GONE
     }
 
     private fun setCurrentLocationWeatherData(response: WeatherCharacteristics) {
@@ -118,17 +122,19 @@ class HomeFragment : Fragment() {
 
     private fun updateViewWithServerData() {
         if (!isNetworkAvailable(requireContext())) {
-            showMessage(requireContext().resources.getString(R.string.no_internetConnection))
-            return
+            no_connection_view.visibility = View.VISIBLE
+            currentLocationLayout.visibility = View.GONE
+        } else {
+            no_connection_view.visibility = View.GONE
+            currentLocationLayout.visibility = View.VISIBLE
+            homeViewModel.getCurrentLocationWeatherData(
+                userCurrentLocation.latitude,
+                userCurrentLocation.longitude,
+                !isNetworkAvailable(requireContext()),
+                getUpdatedDate(dueDateTime),
+                getCurrentTime(Calendar.getInstance().timeInMillis)
+            )
         }
-        homeViewModel.getCurrentLocationWeatherData(
-            userCurrentLocation.latitude,
-            userCurrentLocation.longitude,
-            !isNetworkAvailable(requireContext())
-        )
     }
 
-    private fun showMessage(message: String) {
-        Toast.makeText(requireContext(), message, Toast.LENGTH_LONG).show()
-    }
 }

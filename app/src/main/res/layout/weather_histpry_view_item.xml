@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/clRecyclerViewItemGeneric"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/margin_default"
+    android:background="@drawable/background_white_with_6_radius_with_shadow"
+    android:focusable="true">
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/ivWeatherImage"
+        android:layout_width="@dimen/image_list_size_value"
+        android:layout_height="@dimen/image_list_size_value"
+        android:layout_margin="@dimen/margin_default"
+        android:scaleType="fitXY"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:riv_corner_radius="@dimen/corner_radius_6"
+        tools:src="@drawable/ic_home" />
+
+    <TextView
+        android:id="@+id/tvWeatherState"
+        style="@style/H4MobileCenterGreyBold3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_default"
+        android:ellipsize="end"
+        android:maxLines="1"
+        app:layout_constraintStart_toEndOf="@+id/ivWeatherImage"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Sunny" />
+
+    <TextView
+        android:id="@+id/tvWeatherData"
+        style="@style/H3MobileLeftGrey7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_small"
+        android:layout_marginBottom="@dimen/margin_small"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tvWeatherState"
+        app:layout_constraintTop_toBottomOf="@+id/tvWeatherState"
+        tools:text="Sunday Jan 9" />
+
+    <TextView
+        android:id="@+id/tvWeatherValue"
+        style="@style/H4MobileCenterGreyBold3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_huge"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="9" />
+
+    <TextView
+        style="@style/H4MobileCenterGreyBold3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/tvWeatherValue"
+        app:layout_constraintTop_toTopOf="@+id/tvWeatherValue"
+        android:text="@string/temp_uint" />
+</androidx.constraintlayout.widget.ConstraintLayout>

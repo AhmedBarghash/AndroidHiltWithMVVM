@@ -11,6 +11,7 @@
     <color name="mono_grey">#333333</color>
     <color name="mono_grey_2">#666666</color>
     <color name="Red">#E60000</color>
+    <color name="offRed">#20E60000</color>
     <color name="colorGrey">#CCCCCC</color>
 
 </resources>

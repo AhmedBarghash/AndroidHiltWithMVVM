@@ -1,9 +1,7 @@
 package com.weatherapp.utils
 
-import android.app.Activity
 import java.util.*
 import android.content.Context
-import android.graphics.Bitmap
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
@@ -11,17 +9,14 @@ import android.widget.ImageView
 import com.bumptech.glide.Glide
 import java.text.SimpleDateFormat
 
-fun getDayStringForToday(context: Context): String {
-    val sdf = SimpleDateFormat("EEEE")
-    val d = Date()
-    return sdf.format(d)
-}
-
 fun getUpdatedDate(calendar: Calendar): String {
     val dtFormat = SimpleDateFormat("EEEE MMM d", Locale.getDefault())
     val date = calendar.time
     return dtFormat.format(date)
 }
+
+
+fun getCurrentTime(date: Long): String = SimpleDateFormat("h:mm a", Locale.getDefault()).format(date)
 
 fun getDayStatus(): DayStatus {
     val c = Calendar.getInstance()
@@ -30,11 +25,14 @@ fun getDayStatus(): DayStatus {
         in 12..15 -> DayStatus.Afternoon
         in 16..20 -> DayStatus.Evening
         in 21..23 -> DayStatus.Night
-        else -> {DayStatus.Morning}
+        else -> {
+            DayStatus.Morning
+        }
     }
 }
-enum class DayStatus(){
-    Morning,Afternoon,Evening,Night
+
+enum class DayStatus() {
+    Morning, Afternoon, Evening, Night
 }
 
 fun ImageView?.glideLoad(image_url: String) {
@@ -59,22 +57,6 @@ fun isNetworkAvailable(context: Context): Boolean {
         return netInfo != null && netInfo.isConnectedOrConnecting
     }
 }
-
-fun getDateFormat(dateInLong: Long): String {
-    val date = Date(dateInLong)
-    val sdf2 = SimpleDateFormat("EEEE", Locale.getDefault())
-    return sdf2.format(date)
-}
-
-fun getTimeFormat(timeInLong: Long): String {
-    val date = Date(timeInLong * 1000)
-    val sdf2 = SimpleDateFormat("hh:mm aa", Locale.getDefault())
-    return sdf2.format(date)
-}
-
-fun getCurrentTime() = SimpleDateFormat("hh:mm aa", Locale.getDefault()).format(Date())!!
-
-fun getDateTime() = SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault()).format(Date()).toInt()
 
 // Kelvin to Celsius
 fun getTemperatureInCelsius(temperature: Double) = (temperature - 273.15).toInt().toString()

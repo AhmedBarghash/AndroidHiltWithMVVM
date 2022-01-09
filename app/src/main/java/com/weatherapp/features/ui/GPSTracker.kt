@@ -28,7 +28,7 @@ class GPSTracker {
         this.mContext = context
     }
 
-    fun checkGPSStatus(): Boolean {
+    fun isGPSPermissionGranted(): Boolean {
         val locationManager = mContext.getSystemService(Context.LOCATION_SERVICE) as LocationManager
         return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
     }
@@ -74,7 +74,7 @@ class GPSTracker {
             override fun onStatusChanged(p0: String?, p1: Int, p2: Bundle?) {
             }
         }
-        if (isGPSEnabled != false || isNetworkEnabled != false) {
+        if (isGPSEnabled || isNetworkEnabled) {
             val provider =
                 if (isNetworkEnabled) LocationManager.NETWORK_PROVIDER else LocationManager.GPS_PROVIDER
             val location = locationManager.getLastKnownLocation(provider)

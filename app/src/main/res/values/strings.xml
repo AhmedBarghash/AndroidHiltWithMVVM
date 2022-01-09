@@ -2,8 +2,7 @@
     <string name="app_name">WeatherLogger</string>
     <string name="add_record_text">Press + to add a weather record</string>
     <string name="empty_title">Nothing here yet!</string>
-
-    <string name="empty_message">There is no data to show press Add to get the latest Weather data</string>
+    <string name="empty_message">There is no data to show please check you Connection to get the latest Weather data</string>
 
     <string name="sunrise_title">Sunrise</string>
     <string name="sunset_title">Sunset</string>
@@ -26,7 +25,7 @@
     <string name="temp_low_value">"L:%s°"</string>
     <string name="title_activity_home">HomeActivity</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
+    <string name="title_dashboard">History</string>
     <string name="title_notifications">Notifications</string>
 
 </resources>

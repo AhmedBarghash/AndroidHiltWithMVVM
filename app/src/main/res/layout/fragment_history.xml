@@ -6,30 +6,33 @@
     android:layout_height="match_parent">
 
     <include
-        android:id="@+id/no_connection_view"
-        layout="@layout/layout_no_connection_view"
+        android:id="@+id/empty_view"
+        layout="@layout/layout_empty_view"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <include layout="@layout/layout_loader"
-        android:visibility="gone"
-        android:id="@+id/loader_bg"
-        android:clickable="true"
-        android:focusable="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
 
     <include
-        android:id="@+id/currentLocationLayout"
-        layout="@layout/layout_current_location_weather_info"
+        android:id="@+id/historyLoaderScreen"
+        layout="@layout/layout_loader"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvCharacteristics"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_default"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:listitem="@layout/weather_histpry_view_item" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

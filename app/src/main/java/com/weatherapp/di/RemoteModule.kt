@@ -13,18 +13,18 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-class ApiModule {
+class RemoteModule {
 
     @Singleton
     @Provides
-    fun provideWeatherApi( @Named("retrofit") retrofit: Retrofit): WeatherInterface {
+    fun provideWeatherApi(@Named("retrofit") retrofit: Retrofit): WeatherInterface {
         return retrofit.create(WeatherInterface::class.java)
     }
 
     @Singleton
     @Provides
-    fun providesWeatherRepository(api: WeatherInterface) :WeatherRepository{
-        return WeatherRepository(api)
+    fun providesWeatherRepository(api: WeatherInterface, locale: WeatherDao): WeatherRepository {
+        return WeatherRepository(api,locale)
     }
 
 }

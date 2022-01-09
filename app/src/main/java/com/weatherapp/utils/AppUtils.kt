@@ -16,7 +16,14 @@ fun getUpdatedDate(calendar: Calendar): String {
 }
 
 
-fun getCurrentTime(date: Long): String = SimpleDateFormat("h:mm a", Locale.getDefault()).format(date)
+fun getCurrentTime(date: Long): String =
+    SimpleDateFormat("h:mm a", Locale.getDefault()).format(date)
+
+fun getTimeFormat(timeInLong: Long): String {
+    val date = Date(timeInLong * 1000)
+    val sdf2 = SimpleDateFormat("hh:mm aa", Locale.getDefault())
+    return sdf2.format(date)
+}
 
 fun getDayStatus(): DayStatus {
     val c = Calendar.getInstance()

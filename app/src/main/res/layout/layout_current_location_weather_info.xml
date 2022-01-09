@@ -7,14 +7,14 @@
 
     <ImageView
         android:id="@+id/imageBackGround"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:scaleType="fitXY"
-        tools:src="@drawable/night"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:background="@drawable/morning_background" />
 
     <LinearLayout
         android:id="@+id/ll_header"
@@ -52,13 +52,11 @@
         style="@style/H3MobileLeftGrey7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_large"
-        android:layout_marginBottom="@dimen/margin_large"
         android:textColor="@color/white"
-        android:textSize="100sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="90sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/linearLayout"
+        app:layout_constraintTop_toBottomOf="@+id/ll_header"
         tools:text="80" />
 
     <TextView
@@ -75,24 +73,17 @@
         android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_large"
         android:gravity="center"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <ImageView
-            android:id="@+id/ivIcon"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:src="@drawable/ic_clear_sky" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_temp">
 
         <TextView
             android:id="@+id/tv_mode_type"
             style="@style/H4MobileCenterGreyBold3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_small"
             android:textColor="@color/white"
             tools:text="Sunny" />
 
@@ -107,6 +98,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_small"
+                android:layout_marginEnd="@dimen/margin_small"
                 android:textColor="@color/white"
                 tools:text="28C" />
 
@@ -121,4 +113,14 @@
         </LinearLayout>
     </LinearLayout>
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_characteristics"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_huge"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        tools:itemCount="2"
+        tools:listitem="@layout/current_location_weather_characteristics_view_item" />
 </androidx.constraintlayout.widget.ConstraintLayout>

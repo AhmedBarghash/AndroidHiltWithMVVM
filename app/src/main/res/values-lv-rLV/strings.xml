@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Laikapstākļu reģistratorsa</string>
+    <string name="add_record_text">Nospiediet +, lai pievienotu laika ziņas</string>
+    <string name="sunrise_title">Saullēkts</string>
+    <string name="empty_title">Te vēl nekā!</string>
+    <string name="empty_message">Nav datu, ko parādīt, lūdzu, pārbaudiet savienojumu, lai iegūtu jaunākos laikapstākļu datus.</string>
+    <string name="add_new_weather_data_button_text">Pievienojiet jaunu laikapstākļu ierakstu</string>
+    <string name="sunset_title">Saulriets</string>
+    <string name="feels_like">Jūtas kā</string>
+    <string name="pressure_title">Spiediens</string>
+    <string name="visibility_title">Redzamība</string>
+    <string name="speed_title">Vējš</string>
+    <string name="temp_max_title">Paaugstināta temp.</string>
+    <string name="temp_min_title">Zema temp.</string>
+    <string name="current_weather">Pašreizējie laikapstākļi</string>
+    <string name="no_data_to_show">Nav datu, ko parādīt</string>
+    <string name="duplicate_data_message">lūdzu, pagaidiet dažas minūtes un noklikšķiniet vēlreiz uz Saglabāt, lai pievienotu jaunu ierakstu</string>
+    <string name="no_internetConnection">Nav interneta savienojuma</string>
+    <string name="end_point_not_found">Beigu punkts, uz kuru jūsu lietotne mēģina piezvanīt, neeksistē</string>
+    <string name="something_is_wrong">Kaut kas nožēlojās :(</string>
+    <string name="your_token_is_expired">jūsu marķiera derīguma termiņš ir beidzies vai ir nepareizs</string>
+    <string name="timeout_message">Palūgt pārtraukumu. Lūdzu mēģiniet vēlreiz.</string>
+    <string name="server_error_message">Serveris nedarbojas</string>
+    <string name="temp_max_value">H:%s°</string>
+    <string name="temp_low_value">L:%s°</string>
+    <string name="temp_uint">"°"</string>
+    <string name="title_home">Mājas</string>
+    <string name="title_dashboard">Vēsture</string>
+    <string name="deny_permission_message">Godātais kungs, jūs atsakāties piešķirt mums atļauju piekļūt jūsu pašreizējai atrašanās vietai, lūdzu, piešķiriet lietotnei atļauju piekļūt atrašanās vietai sadaļā Iestatījumi</string>
+</resources>

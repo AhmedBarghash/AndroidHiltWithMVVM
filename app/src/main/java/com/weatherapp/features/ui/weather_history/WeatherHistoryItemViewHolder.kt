@@ -21,6 +21,7 @@ class WeatherHistoryItemViewHolder(override val containerView: View) :
             tvWeatherState.text = item.description
             tvWeatherValue.text = item.temp?.let { getTemperatureInCelsius(it) }
             tvWeatherData.text = item.date
+            tvTime.text = item.currentTime
         }
     }
 }

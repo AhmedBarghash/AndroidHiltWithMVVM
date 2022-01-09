@@ -45,6 +45,19 @@
         tools:text="Sunday Jan 9" />
 
     <TextView
+        android:id="@+id/tvTime"
+        style="@style/H3MobileLeftGrey7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_small"
+        android:layout_marginStart="@dimen/margin_default"
+        android:layout_marginBottom="@dimen/margin_small"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvWeatherData"
+        app:layout_constraintTop_toBottomOf="@+id/tvWeatherState"
+        tools:text="23:00 Pm" />
+
+    <TextView
         android:id="@+id/tvWeatherValue"
         style="@style/H4MobileCenterGreyBold3"
         android:layout_width="wrap_content"

@@ -1,12 +1,14 @@
 <resources>
-    <string name="app_name">WeatherLogger</string>
+    <string name="app_name">Weather Logger</string>
     <string name="add_record_text">Press + to add a weather record</string>
     <string name="empty_title">Nothing here yet!</string>
     <string name="empty_message">There is no data to show please check you Connection to get the latest Weather data</string>
 
     <string name="sunrise_title">Sunrise</string>
     <string name="sunset_title">Sunset</string>
-    <string name="humidity_title">Humidity</string>
+    <string name="feels_like">Feels Like</string>
+    <string name="pressure_title">Pressure</string>
+    <string name="visibility_title">Visibility</string>
     <string name="speed_title">Wind</string>
     <string name="temp_max_title">High Temperature</string>
     <string name="temp_min_title">Low Temperature</string>
@@ -20,12 +22,11 @@
     <string name="timeout_message">Request Timeout. Please try again.</string>
     <string name="server_error_message">" Server down  "</string>
     <string name="add_new_weather_data_button_text">Add New Weather Record</string>
-    <string name="temp_uint">"°C"</string>
+    <string name="temp_uint">"°"</string>
     <string name="temp_max_value">"H:%s°"</string>
     <string name="temp_low_value">"L:%s°"</string>
-    <string name="title_activity_home">HomeActivity</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">History</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="deny_permission_message">Sir, you refuse to give us permission to access your current location please give the app permission to access the location from the Settings</string>
 
 </resources>

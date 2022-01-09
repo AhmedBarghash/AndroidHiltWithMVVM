@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/clRecyclerViewItemGeneric"
+    android:layout_width="100dp"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="@dimen/margin_default"
+    android:layout_marginBottom="@dimen/margin_default"
+    android:background="@drawable/background_button_primary"
+    android:focusable="true">
+
+    <TextView
+        android:id="@+id/tvCharacteristicTitle"
+        style="@style/H4MobileCenterGreyBold3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_small"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Sunny" />
+
+    <ImageView
+        android:id="@+id/ivCharacteristicImage"
+        android:layout_width="@dimen/image_list_small_size_value"
+        android:layout_height="@dimen/image_list_small_size_value"
+        android:layout_margin="@dimen/margin_medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvCharacteristicTitle"
+        tools:src="@drawable/ic_feelslike" />
+
+    <TextView
+        android:id="@+id/tvCharacteristicValue"
+        style="@style/H4MobileCenterGreyBold3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_small"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivCharacteristicImage"
+        tools:text="9" />
+</androidx.constraintlayout.widget.ConstraintLayout>

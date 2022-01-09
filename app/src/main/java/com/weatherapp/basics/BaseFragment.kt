@@ -1,6 +1,5 @@
 package com.weatherapp.basics
 
-import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.weatherapp.R

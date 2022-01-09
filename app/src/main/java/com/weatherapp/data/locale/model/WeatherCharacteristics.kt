@@ -15,5 +15,15 @@ data class WeatherCharacteristics(
     var icon: String? = null,
     var date: String? = null,
     @PrimaryKey(autoGenerate = false)
-    var currentTime: String
+    var currentTime: String,
+    var feelsLike: Double? = null,
+    var pressure: Int? = null,
+    var humidity: Int? = null,
+    var seaLevel: Int? = null,
+    var grndLevel: Int? = null,
+    var windspeed: Double? = null,
+    var visibility: Int? = null,
+    var country: String? = null,
+    var sunrise: Int? = null,
+    var sunset: Int? = null,
 )

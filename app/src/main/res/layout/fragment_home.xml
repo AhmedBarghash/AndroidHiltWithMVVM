@@ -6,6 +6,22 @@
     android:layout_height="match_parent">
 
     <include
+        android:id="@+id/currentLocationLayout"
+        layout="@layout/layout_current_location_weather_info"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <include
+        android:id="@+id/fetch_data_view"
+        layout="@layout/layout_fetch_data_view"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <include
         android:id="@+id/no_connection_view"
         layout="@layout/layout_no_connection_view"
         android:visibility="gone"
@@ -14,22 +30,15 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <include layout="@layout/layout_loader"
-        android:visibility="gone"
+    <include
         android:id="@+id/loader_bg"
+        layout="@layout/layout_loader"
         android:clickable="true"
         android:focusable="true"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-
-    <include
-        android:id="@+id/currentLocationLayout"
-        layout="@layout/layout_current_location_weather_info"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

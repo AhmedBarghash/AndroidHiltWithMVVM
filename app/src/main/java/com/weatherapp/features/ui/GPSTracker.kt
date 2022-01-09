@@ -12,35 +12,16 @@ import android.os.Handler
 import androidx.core.app.ActivityCompat
 
 
-class GPSTracker {
-
-    private var location: Location? = null
-    private val UPDATE_INTERVAL = (10 * 1000).toLong()  /* 10 secs */
-    private val FASTEST_INTERVAL: Long = 2000 /* 2 sec */
-    var REQUEST_FINE_LOCATION = 123
-    private var mContext: Context
+class GPSTracker constructor(private var context: Context) {
 
     val MIN_TIME_BW_UPDATES = 1L
     val MIN_DISTANCE_CHANGE_FOR_UPDATES = 1F
     val EXPIRATION_TIME = 2000L
 
-    constructor(context: Context) {
-        this.mContext = context
-    }
 
     fun isGPSPermissionGranted(): Boolean {
-        val locationManager = mContext.getSystemService(Context.LOCATION_SERVICE) as LocationManager
+        val locationManager = context.getSystemService(Context.LOCATION_SERVICE) as LocationManager
         return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
-    }
-
-
-    fun createRequestPermissions(mContext: Activity) {
-
-        ActivityCompat.requestPermissions(
-            mContext,
-            arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
-            REQUEST_FINE_LOCATION
-        )
     }
 
     fun showGPSDisabledAlertToUser(activity: Activity) {
@@ -59,7 +40,7 @@ class GPSTracker {
 
     @SuppressLint("MissingPermission")
     fun getLocation(onLocationCallback: (location: Location?) -> Unit) {
-        val locationManager = mContext.getSystemService(Context.LOCATION_SERVICE) as LocationManager
+        val locationManager = context.getSystemService(Context.LOCATION_SERVICE) as LocationManager
         val isGPSEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
         val isNetworkEnabled = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)
         val locationListener = object : LocationListener {

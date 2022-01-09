@@ -45,7 +45,7 @@ class WeatherHistoryFragment : BaseFragment(), ViewContract {
         setLoaderVisibility(true)
         rvCharacteristics?.apply {
             layoutManager =
-                LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, true)
+                LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
             weatherHistoryAdapter = WeatherHistoryAdapter(requireContext(), weatherHistory)
             adapter = weatherHistoryAdapter
         }

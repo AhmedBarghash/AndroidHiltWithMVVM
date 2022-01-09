@@ -21,7 +21,7 @@
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">20sp</item>
         <item name="android:lineSpacingExtra">8sp</item>
-        <item name="android:textColor">@color/mono_grey</item>
+        <item name="android:textColor">@color/dark</item>
     </style>
 
     <style name="H3MobileLeftGrey7">

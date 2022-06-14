@@ -1,11 +1,5 @@
-# WeatherLogger
-Android application to save weather conditions for your current location and the background change based on your time.
-
-## Screenshot
-![Screenshot_20220109_224518](https://user-images.githubusercontent.com/18752334/148705453-23c750f5-d6d4-40ee-a6c1-50f0ffbbae28.png)
-![Screenshot_20220109_224456](https://user-images.githubusercontent.com/18752334/148705457-561023dd-0376-4377-b06e-b08160bd08ca.png)
-![Screenshot_20220109_224431](https://user-images.githubusercontent.com/18752334/148705464-7ef4eeb8-e26e-4f39-8234-ccd94e18becd.png)
-![Screenshot_20220109_224410](https://user-images.githubusercontent.com/18752334/148705466-0e359ebc-e64a-49c8-b5a2-ce3058fc4e75.png)
+# MVVM_Exmaple
+Android application as a live example for MVVM with koltin and Hilt.
 
 ## Project setup & Info
 it's a basic Android studio project used to implement the new Architecture components in the jet back Clone the repo, open the project in Android Studio, hit "Run". Done!
